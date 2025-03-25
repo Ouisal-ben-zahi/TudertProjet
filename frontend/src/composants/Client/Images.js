@@ -39,7 +39,12 @@ function Images() {
         const res = await api.post("/ligne-commandes", {
             produit: images[hoveredIndex]._id,
             quantite: 1,
+            id_utilisateur: utilisateur.id,
             total: images[hoveredIndex].prix
+        },{
+            headers: {
+                Authorization: `Bearer ${utilisateur.token}`,
+            },
         });
         console.log(res.data);
     } catch (error) {
@@ -66,7 +71,7 @@ function Images() {
                 />
                 {hoveredIndex === index && (
                   <div>
-                  <button className="cart-icon" style={{color:'black',display:'flex',gap:'10px',cursor:'pointer'}}>
+                  <button className="cart-icon" style={{color:'black',display:'flex',gap:'10px',cursor:'pointer',alignItems:'center'}}>
                     <FontAwesomeIcon icon={faCartShopping} size="xs" className="icons" onClick={handleAddPanier}/>
                     <FontAwesomeIcon icon={faHeart}  size="xs" className="icons"/>
                     <FontAwesomeIcon icon={faMagnifyingGlass} size="xs" className="icons"/>

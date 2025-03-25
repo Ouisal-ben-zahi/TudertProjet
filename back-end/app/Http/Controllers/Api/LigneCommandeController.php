@@ -30,15 +30,10 @@ class LigneCommandeController extends Controller
     public function store(Request $request)
     {
         try {
-            if(!Auth::check()){
-                return response()->json([
-                    "message" => "Vous devez être connecté pour effectuer cette action."
-                ], 401);
-            }
             $ligneCommande = new LigneCommande();
-            $ligneCommande->id_commande = $request->id_commande;
             $ligneCommande->id_produit = $request->id_produit;
             $ligneCommande->quantité = $request->quantité;
+            $ligneCommande->id_utilisateur = Auth::id();
             $ligneCommande->save();
     
             return response()->json($ligneCommande);

@@ -33,7 +33,7 @@ Route::apiResource('categories', CategorieController::class);
 
 Route::apiResource('produites', ProduitController::class);
 
-Route::apiResource('ligne-commandes', LigneCommandeController::class);
+Route::apiResource('ligne-commandes', LigneCommandeController::class)->middleware('auth:sanctum');
 
 Route::get('/images/{filename}', [ProduitController::class, 'getProductImage']);
 
