@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\LigneCommande;
 use App\Models\Produite;
+use Illuminate\Support\Facades\Auth;
 
 class LigneCommandeController extends Controller
 {
@@ -28,7 +29,22 @@ class LigneCommandeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            if(!Auth::check()){
+                return response()->json([
+                    "message" => "Vous devez être connecté pour effectuer cette action."
+                ], 401);
+            }
+            $ligneCommande = new LigneCommande();
+            $ligneCommande->id_commande = $request->id_commande;
+            $ligneCommande->id_produit = $request->id_produit;
+            $ligneCommande->quantité = $request->quantité;
+            $ligneCommande->save();
+    
+            return response()->json($ligneCommande);
+        } catch (\Throwable $th) {
+            return response()->json($th);
+        }
     }
 
     /**

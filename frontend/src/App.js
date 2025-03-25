@@ -15,7 +15,7 @@ import GestionCommandes from "./composants/Admin/GestionCommandes";
 import GestionUtilisateur from "./composants/Admin/GestionUtilisateur";
 import GestionProduits from "./composants/Admin/GestionProduits";
 import GestionPaiement from "./composants/Admin/GestionPaiement";
-
+import { Toaster } from "sonner";
 const App = () => (
   <Provider store={store}>
     <>
@@ -37,6 +37,7 @@ const App = () => (
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
+    <Toaster/>
   </Provider>
 );
 

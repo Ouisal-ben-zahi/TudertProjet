@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware  } from 'redux';
 import {thunk} from "redux-thunk";
 import produitsReducer from './reducers/produitsReducer';
-import utilisateursReducer from './reducers/utilisateursReducer';
+import {utilisateursReducer} from './reducers/utilisateursReducer';
 import panierReducer from './reducers/panierReducer';
 import commandesReducer from './reducers/commandesReducer';
 import categoriesReducer from './reducers/categoriesReducer';

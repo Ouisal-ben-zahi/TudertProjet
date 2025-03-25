@@ -1,0 +1,75 @@
+.image-container {
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .title {
+    color: green;
+    align-content: start;
+    width: 100%;
+    padding-left: 20px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    width: 100%;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  
+  .image-box {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .plant-image {
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .zoom-in {
+    transform: scale(1.1);
+  }
+  
+  .cart-icon {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .cart-icon:hover {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  
+  .price {
+    color: green;
+  }
+  
+  
+  .icons:hover {
+    color: green ;
+  }

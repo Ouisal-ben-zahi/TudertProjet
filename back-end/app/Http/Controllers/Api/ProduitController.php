@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\produite;
 use Illuminate\Http\Request;
 
 class ProduitController extends Controller
@@ -12,7 +13,17 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        $produits = Produite::all()->map(function ($produit) {
+            return [
+                'id' => $produit->id,
+                'nom' => $produit->nom,
+                'prix' => $produit->prix,
+                'description' => $produit->description,
+                'image' => asset('storage/' . $produit->image),
+            ];
+        });
+
+        return response()->json($produits);
     }
 
     /**
@@ -48,6 +59,7 @@ class ProduitController extends Controller
     }
     public function getProductImage($filename)
     {
+        return response()->json(['success' => 'you are here']);
         $path = storage_path('app/public/images/' . $filename);
         if (!file_exists($path)) {
             return response()->json(['error' => 'Image not found'], 404);

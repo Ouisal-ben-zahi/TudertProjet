@@ -12,11 +12,12 @@ class LigneCommande extends Model
     protected $fillable = [
         'quantité',
         'id_produite',
+        'id_utilisateur',
     ];
 
     // Relation avec le produit
     public function produit()
     {
-        return $this->belongsTo(Produit::class, 'id_produite');
+        // return $this->belongsTo(Produit::class, 'id_produite');
     }
 }

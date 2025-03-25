@@ -13,6 +13,7 @@ use App\Models\LigneAchat;
 use App\Models\Achat;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use database\seeders\ProduitSeeder;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(ProduitSeeder::class);
         User::create([
             'nom' => 'Doe',
             'prenom' => 'John',
